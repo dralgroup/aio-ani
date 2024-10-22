@@ -64,7 +64,7 @@ class AIO_ANI():
         self.aev_computer = torchani.AEVComputer(self.Rcr, self.Rca, self.EtaR, self.ShfR, self.EtaA, self.Zeta, self.ShfA, self.ShfZ, len(self.species_order))
 
     def load(self):
-        self.modeldict = torch.load(self.model_path)
+        self.modeldict = torch.load(self.model_path, map_location=torch.device('cpu'))
         self.nn.load_state_dict(self.modeldict['nn'])
         
 
